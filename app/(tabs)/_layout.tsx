@@ -1,11 +1,19 @@
 import { AntDesign, Entypo } from "@expo/vector-icons";
-import { Redirect, Tabs } from "expo-router";
+import { Redirect, Tabs, useRouter } from "expo-router";
 import { useAtom } from "jotai";
-import { onBoardingAtom } from "@/atoms/onboarding-atom";
+import { useEffect } from "react";
+import { useOnBoardingStore } from "@/stores/onboarding-store";
 
 export default function Layout() {
-  const [onboarded] = useAtom(onBoardingAtom);
-  if (!onboarded) return <Redirect href="/onboarding" />;
+  // const [onboarded] = useAtom(onBoardingAtom);
+  // const router = useRouter();
+
+  const onBoarded = useOnBoardingStore((s) => s.hasFinishedOnboarding);
+
+  if (onBoarded === false) {
+    return <Redirect href="/onboarding" />;
+  }
+
   return (
     <Tabs
       screenOptions={{
