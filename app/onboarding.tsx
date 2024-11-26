@@ -12,13 +12,10 @@ import {
 export default function Onboarding() {
   const { width } = useWindowDimensions();
   const imageSize = width * 0.9;
-  // const [isOnBoarded, setOnBoarding] = useAtom(onBoardingAtom);
   const toggleOnBoarding = useOnBoardingStore((s) => s.toggleHasOnboarded);
   const router = useRouter();
   const handleFinishOnBoarding = () => {
-    // console.log("Onboarding started", typeof isOnBoarded);
     toggleOnBoarding();
-    // console.log("Onboarding finished", isOnBoarded);
 
     router.replace("/");
   };
