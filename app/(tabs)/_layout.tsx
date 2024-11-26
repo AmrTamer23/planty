@@ -1,6 +1,5 @@
 import { AntDesign, Entypo } from "@expo/vector-icons";
 import { Redirect, Tabs, useRouter } from "expo-router";
-import { useAtom } from "jotai";
 import { useEffect } from "react";
 import { useOnBoardingStore } from "@/stores/onboarding-store";
 
