@@ -1,6 +1,6 @@
 import { AntDesign, Entypo } from "@expo/vector-icons";
 import { Link, Redirect, Tabs, useRouter } from "expo-router";
-import { useOnBoardingStore } from "@/stores/onboarding-store";
+import { useOnBoardingStore } from "../../stores/onboarding-store";
 import { Pressable } from "react-native";
 
 export default function Layout() {
@@ -10,7 +10,7 @@ export default function Layout() {
     return <Redirect href="/onboarding" />;
   }
 
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <Tabs
@@ -34,16 +34,16 @@ export default function Layout() {
             <Entypo name="leaf" size={size} color={color} />
           ),
           headerRight: () => (
-           <Link asChild href={'/new-plant'}>
-            <Pressable hitSlop={10} >
-              <AntDesign
-                name="pluscircleo"
-                size={24}
-                color="#008000"
-                className="mr-4"
-              />
-            </Pressable>
-           </Link>
+            <Link asChild href={"/new-plant"}>
+              <Pressable hitSlop={10}>
+                <AntDesign
+                  name="pluscircleo"
+                  size={24}
+                  color="#008000"
+                  className="mr-4"
+                />
+              </Pressable>
+            </Link>
           ),
         }}
       />
